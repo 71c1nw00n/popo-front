@@ -1,12 +1,15 @@
+"use client"; 
+
 import React, { useState } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 
 const Step1 = () => {
   const router = useRouter();
+
   // 상태 관리: 선택된 버튼들
-  const [selectedTraits, setSelectedTraits] = useState([]);
-  const [selectedStyles, setSelectedStyles] = useState([]);
-  const [selectedFields, setSelectedFields] = useState([]);
+  const [selectedTraits, setSelectedTraits] = useState<string[]>([]);
+  const [selectedStyles, setSelectedStyles] = useState<string[]>([]);
+  const [selectedFields, setSelectedFields] = useState<string[]>([]);
 
   // 선택/해제 토글 함수
   const toggleSelection = (item, setFunction, currentState, maxItems) => {
@@ -28,36 +31,19 @@ const Step1 = () => {
   };
 
   return (
-    <div className="relative w-full h-auto bg-white overflow-hidden">
-      {/* header */}
-      <header className="bg-[#FFFFFF] text-white py-4 shadow-md fixed w-full top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          {/* 로고 */}
-          <div className="text-3xl font-bold text-[#2300A1]">POPO</div>
+    <div className="flex flex-col w-full h-full">
+        {/* Container */}
+        <div className="w-full h-full">
 
-          {/* 네비게이션 메뉴 */}
-          <nav className="flex space-x-6">
-            <button 
-              onClick={handleNext}
-              className="hover:text-gray-300 font-bold text-[#2300A1] text-xl"
-            >
-              다음
-            </button>
-          </nav>
-        </div>
-      </header>
-
-      {/* 콘텐츠 */}
-      <div className="px-10 pt-20"> {/* 헤더 높이만큼 패딩 추가 */}
-        {/* Step Description */}
         <div className="px-4 py-4 sm:px-6 md:px-12">
           <p className="text-xl sm:text-2xl md:text-3xl font-bold text-black">
             Step 1. 자기소개 작성
           </p>
-          <p className="text-base sm:text-lg lg:text-xl font-light mt-2">
+          <p className="text-base sm:text-lg lg:text-xl mt-2">
             나를 설명할 수 있는 키워드를 골라주세요
           </p>
         </div>
+
         {/* 성격 */}
         <div className="px-4 py-5 sm:px-6 md:px-12">
           <p className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2300A1]">
@@ -134,26 +120,6 @@ const Step1 = () => {
             ))}
           </div>
         </div>  
-
-
-      {/* SVG Bar */}
-      <svg
-        width={1219}
-        height={58}
-        viewBox="0 0 1219 58"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="mx-auto w-4/9 max-w-[800px] h-auto py-12 "
-        preserveAspectRatio="none"
-      >
-        <rect x={29} y={20} width={1163} height={17} fill="#D9D9D9" />
-        <circle cx={29} cy={29} r={29} fill="#CECFED" />
-        <circle cx={261} cy={29} r={29} fill="#D9D9D9" />
-        <ellipse cx="493.5" cy={29} rx="29.5" ry={29} fill="#D9D9D9" />
-        <circle cx={726} cy={29} r={29} fill="#D9D9D9" />
-        <circle cx={958} cy={29} r={29} fill="#D9D9D9" />
-        <circle cx={1190} cy={29} r={29} fill="#D9D9D9" />
-      </svg>
       
     </div>
     </div>

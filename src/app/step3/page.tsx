@@ -1,9 +1,11 @@
+"use client";
+
 import React, { useState } from "react";
 import Link from 'next/link';
 
 const Step3 = () => {
   // 상태 관리: 선택된 옵션
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
   // 날짜 상태 초기화 추가
   const [startDate, setStartDate] = useState({ year: "", month: "" });
   const [endDate, setEndDate] = useState({ year: "", month: "" });
@@ -70,32 +72,14 @@ const Step3 = () => {
   };
 
   return (
-    <div className="relative w-full h-auto bg-white overflow-hidden">
-      {/* header */}
-      <header className="bg-[#FFFFFF] text-white py-4 shadow-md fixed w-full top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          {/* 로고 */}
-          <div className="text-3xl font-bold text-[#2300A1]">POPO</div>
-
-          {/* 네비게이션 메뉴 */}
-          <nav className="flex space-x-6">
-            <Link 
-              href="/step3/ai" 
-              className="hover:text-gray-300 font-bold text-[#2300A1] text-xl"
-            >
-              AI 요약하기
-            </Link>
-          </nav>
-        </div>
-      </header>
-      {/* 콘텐츠 */}
-      <div className="px-10 pt-20"> {/* 헤더 높이만큼 패딩 추가 */}
-    {/* Step Description */}
+    <div className="flex flex-col w-full h-full">
+      {/* Container */}
+      <div className="w-full h-full">
     <div className="px-4 py-4 sm:px-6 md:px-12">
           <p className="text-xl sm:text-2xl md:text-3xl font-bold text-black">
           Step 3. 인턴/연구 경험 추가
           </p>
-          <p className="text-base sm:text-lg lg:text-xl font-light mt-2">
+          <p className="text-base sm:text-lg lg:text-xl  mt-2">
           인턴 또는 연구 경력을 설명해주세요.
           </p>
           {/* 입력 폼 컨테이너 */}
@@ -116,7 +100,7 @@ const Step3 = () => {
         className="w-40 lg:w-40 sm:w-1/3 p-3 rounded-md border border-gray-400 bg-white text-gray-800"
       >
         <option value="" disabled>
-          경험 유형을 선택하세요
+          경험 유형
         </option>
         <option value="회사 인턴">회사 인턴</option>
         <option value="연구실 경험">연구실 인턴</option>
@@ -262,28 +246,6 @@ const Step3 = () => {
         </div>
         </div>
       </div>
-
-
-      
-
-      {/* SVG Bar */}
-      <svg
-        width={1219}
-        height={58}
-        viewBox="0 0 1219 58"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="mx-auto w-4/9 max-w-[800px] h-auto "
-        preserveAspectRatio="none"
-      >
-        <rect x={29} y={20} width={1163} height={17} fill="#D9D9D9" />
-        <circle cx={29} cy={29} r={29} fill="#CECFED" />
-        <circle cx={261} cy={29} r={29} fill="#D9D9D9" />
-        <ellipse cx="493.5" cy={29} rx="29.5" ry={29} fill="#D9D9D9" />
-        <circle cx={726} cy={29} r={29} fill="#D9D9D9" />
-        <circle cx={958} cy={29} r={29} fill="#D9D9D9" />
-        <circle cx={1190} cy={29} r={29} fill="#D9D9D9" />
-      </svg>
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">

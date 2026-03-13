@@ -7,8 +7,14 @@ export default function CreateProfilePage() {
       {/* Container */}
       <div className="w-full h-full">
             
-        <p className="text-[40px] font-semibold">Step 2. 프로필 형성</p>
-        <p className="text-[40px] text-gray-600">필요한 정보를 입력해주세요</p>
+      <div className="px-4 py-4 sm:px-6 md:px-12">
+          <p className="text-xl sm:text-2xl md:text-3xl font-bold text-black">
+            Step 2. 프로필 형성
+          </p>
+          <p className="text-base sm:text-lg lg:text-xl mt-2">
+            필요한 정보를 입력해주세요
+          </p>
+        </div>
 
         {/* Profile Banner */}
         <div className="relative flex mt-6 w-[80%] mx-auto items-center justify-center bg-lightgray rounded-lg h-32 flex">

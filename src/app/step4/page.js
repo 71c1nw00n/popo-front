@@ -1,11 +1,9 @@
 'use client';
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-import { API_BASE_URL } from "@/config/config"; // 환경 변수 가져오기
-=======
 import React, { useState } from "react";
-
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
+import { useRouter } from "next/navigation";
+import ApiFetcher from "@/components/ApiFetcher";
+import ImageUploader from "@/components/ImageUploader";
+import { API_BASE_URL } from "@/config/config"; // 환경 변수 가져오기
 
 // 도움말 모달
 const HelpModal = () => {
@@ -139,6 +137,7 @@ const HelpModal = () => {
 // Input style 일단은 submit 누르면 저장되는걸로 되어있음
 const InputStyle = () => {
   const [text, setText] = useState(""); // 입력값
+  const router = useRouter();
 
   // 텍스트 파일 생성 및 다운로드
   const saveAsFile = () => {
@@ -167,13 +166,16 @@ const InputStyle = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="저는 XXX 프로젝트를 진행했고, 해당 프로젝트는 99년 1월부터 9월까지 진행되었습니다. 저는 HTML/CS와 JS, 구글 API, MySQL을 담당했고 이를 이용해 UI/UX와 사용자와의 인터렉션을 구현했고 db를 관리했습니다."
-        className="w-full h-40 p-4 rounded-md border bg-gray-100 text-sm md:text-base"
+        className="w-full h-40 p-4 rounded-md border text-sm text-black md:text-base"
       ></textarea>
 
       {/* 저장 버튼 */}
       <div className="flex justify-end">
         <button
-          onClick={saveAsFile}
+          onClick={() => {
+            saveAsFile();
+            router.push("/step4_re");
+          }}
           className="w-10 h-10 rounded-[15px] hover:bg-gray-300 flex items-center justify-center"
         >
           <img src="/submit.png" alt="저장 버튼" className="w-6 h-6" />
@@ -189,16 +191,8 @@ const InputStyle = () => {
 const Step4 = () => {
   // 도움말 모달 관리
   const [isModalOpen, setIsModalOpen] = useState(false);
-<<<<<<< HEAD
-  // 이미지 캐시관리
-  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
-  useEffect(() => {
-      // 페이지가 처음 렌더링될 때마다 이미지 URL을 업데이트하여 캐시 우회
-      setUploadedImageUrl(`${API_BASE_URL}/uploads/cropped_uploaded_image.png?t=${new Date().getTime()}`);
-  }, []);  // 의존성 배열 비워두면 컴포넌트가 처음 마운트될 때만 실행
-=======
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
-
+  const router = useRouter();
+  <ApiFetcher />
   return (
     <div className="relative w-full h-auto bg-white overflow-hidden">
       {/* header */}
@@ -207,18 +201,12 @@ const Step4 = () => {
           {/* 로고 */}
           <div className="text-3xl font-bold text-[#2300A1]">POPO</div>
 
-          {/* 네비게이션 메뉴 // Re?랑 +프로젝트 둘다 라우팅은 똑같은데 onclick으로 +프로젝트는 작성된 데이터 db에 저장하는걸로*/}
-          <nav className="flex flex-row-3 space-x-6">
-            <a href="/" className="hover:text-gray-300 font-bold text-[#2300A1] text-xl">
-              Re?
-            </a>
-            <a href="/" className="hover:text-gray-300 font-bold text-[#2300A1] text-xl">
-              + 프로젝트
-            </a>
-            <a href="./step4_fin" className="hover:text-gray-300 font-bold text-[#2300A1] text-xl">
+          {/* 네비게이션 메뉴 */}
+          {/*<nav className="flex space-x-6">
+            <a href="#Next" className="hover:text-gray-300 font-bold text-[#2300A1] text-xl">
               다음
             </a>
-          </nav>
+          </nav>*/}
         </div>
       </header>
 
@@ -229,7 +217,7 @@ const Step4 = () => {
           {/* 왼쪽 섹션 */}
           <div>
             <h1 className="text-xl font-bold text-black">Step 4. 프로젝트 경험 추가</h1>
-            <p className="text-sm text-gray-600">완성된 프로젝트 요약을 확인하세요</p>
+            <p className="text-sm text-gray-600">프로젝트 소개 및 담당 업무를 입력해주세요!</p>
           </div>
 
           {/* 오른쪽 섹션 */}
@@ -247,17 +235,9 @@ const Step4 = () => {
           {/* 왼쪽 섹션 */}
           <div className="flex flex-col items-center w-full md:w-[45%] bg-gray-100 p-4 rounded-lg shadow">
             {/* 프로젝트 미리보기 */}
-<<<<<<< HEAD
-            <img 
-              src={uploadedImageUrl || null}  // 빈 문자열이면 null로 처리
-              alt="업로드된 이미지"
-              className="w-full h-[250px] bg-gray-300 rounded-md flex items-center justify-center"
-            />
-=======
             <div className="w-full h-[250px] bg-gray-300 rounded-md flex items-center justify-center">
-              <p className="text-gray-500">미리보기 이미지</p>
+              <ImageUploader />
             </div>
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
 
             {/* 프로젝트 제목 */}
             <div className="mt-4 w-full">
@@ -323,5 +303,7 @@ const Step4 = () => {
     </div>
   );
 };
+
+
 
 export default Step4;

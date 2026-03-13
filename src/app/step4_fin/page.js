@@ -8,6 +8,15 @@ import Image from "next/image";
 import { FaCircle, FaRegCircle } from "react-icons/fa";
 import PropTypes from "prop-types"; // Prop 검증을 위해 추가
 
+<<<<<<< HEAD
+// 다음버튼
+const onNext = () => {
+  if (window.confirm("넘어가시겠습니까? 더이상 추가할 수 없습니다.")) {
+      alert("넘어갑니다.");
+  } else {
+      alert("돌아갑니다.");
+  }
+=======
 
 // 다음 클릭 모달달
 const FinModal = () => {
@@ -88,6 +97,7 @@ const FinModal = () => {
       )}
     </>
   );
+>>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
 };
 
 const ImageSlider = ({ images = [] }) => {
@@ -148,7 +158,11 @@ const images =[
 {/*main*/}
 const Step4 = () => {
   // 도움말 모달 관리
+<<<<<<< HEAD
+  const router = useRouter()
+=======
   const [isModalOpen, setIsModalOpen] = useState(false);
+>>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
 
   return (
     <div className="relative w-full h-auto bg-white overflow-hidden">
@@ -163,7 +177,16 @@ const Step4 = () => {
             <a href="/" className="hover:text-gray-300 font-bold text-[#2300A1] text-xl">
               + 프로젝트
             </a>
+<<<<<<< HEAD
+            <button 
+              onClick={onNext} // 버튼 클릭 시 onNext 함수 실행
+              className="hover:text-gray-300 font-bold text-[#2300A1] text-xl"
+            >
+              다음
+            </button>
+=======
             <FinModal onOpen={() => setIsModalOpen(true)} />
+>>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
           </nav>
         </div>
       </header>

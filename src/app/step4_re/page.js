@@ -1,11 +1,6 @@
 'use client';
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { API_BASE_URL } from "@/config/config"; // 환경 변수 가져오기
-=======
-import React, { useState } from "react";
-
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
 
 // 도움말 모달
 const HelpModal = () => {
@@ -189,15 +184,12 @@ const InputStyle = () => {
 const Step4 = () => {
   // 도움말 모달 관리
   const [isModalOpen, setIsModalOpen] = useState(false);
-<<<<<<< HEAD
   // 이미지 캐시관리
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
   useEffect(() => {
       // 페이지가 처음 렌더링될 때마다 이미지 URL을 업데이트하여 캐시 우회
       setUploadedImageUrl(`${API_BASE_URL}/uploads/cropped_uploaded_image.png?t=${new Date().getTime()}`);
   }, []);  // 의존성 배열 비워두면 컴포넌트가 처음 마운트될 때만 실행
-=======
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
 
   return (
     <div className="relative w-full h-auto bg-white overflow-hidden">
@@ -247,17 +239,11 @@ const Step4 = () => {
           {/* 왼쪽 섹션 */}
           <div className="flex flex-col items-center w-full md:w-[45%] bg-gray-100 p-4 rounded-lg shadow">
             {/* 프로젝트 미리보기 */}
-<<<<<<< HEAD
             <img 
               src={uploadedImageUrl || null}  // 빈 문자열이면 null로 처리
               alt="업로드된 이미지"
               className="w-full h-[250px] bg-gray-300 rounded-md flex items-center justify-center"
             />
-=======
-            <div className="w-full h-[250px] bg-gray-300 rounded-md flex items-center justify-center">
-              <p className="text-gray-500">미리보기 이미지</p>
-            </div>
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
 
             {/* 프로젝트 제목 */}
             <div className="mt-4 w-full">

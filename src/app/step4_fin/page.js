@@ -8,7 +8,6 @@ import Image from "next/image";
 import { FaCircle, FaRegCircle } from "react-icons/fa";
 import PropTypes from "prop-types"; // Prop 검증을 위해 추가
 
-<<<<<<< HEAD
 // 다음버튼
 const onNext = () => {
   if (window.confirm("넘어가시겠습니까? 더이상 추가할 수 없습니다.")) {
@@ -16,88 +15,6 @@ const onNext = () => {
   } else {
       alert("돌아갑니다.");
   }
-=======
-
-// 다음 클릭 모달달
-const FinModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const router = useRouter(); // useRouter 초기화
-  return (
-    <>
-      <button
-        aria-label="다음"
-        className="w-auto h-auto flex items-center justify-center hover:text-gray-300 font-bold text-[#2300A1] text-xl"
-        onClick={() => setIsModalOpen(true)}
-      >
-        다음
-      </button>
-      {/* 모달 */}
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          {/* 모달 팝업 */}
-          <div className="bg-white w-[400px] md:w-[600px] p-6 rounded-3xl shadow-lg relative">
-            {/* 닫기 버튼 */}
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-            >
-              ✕
-            </button>
-
-            {/* 모달 내용 */}
-            <h2 className="text-3xl font-bold mb-4 flex justify-center gap-1 text-black">
-            프로젝트 추가 완료
-            </h2>
-
-            <div className="space-y-3">
-              {/* 설명 */}
-                <div className="relative flex justify-center">
-                    <img
-                        src="Alert Triangle.png"
-                        className="w-4 h-4 mr-2"
-                    />
-                    <p className="text-sm text-gray-600 text-center">
-                        포트폴리오 완성 후에만 수정 가능합니다. <br/> 프로젝트 정리를 완료 하시겠습니까?
-                    </p>
-                </div>
-            
-              {/* 진행하기 */}
-                <div className="grid grid-cols-2 items-center">
-                    {/* 버튼1 */}
-                    <div className="flex justify-center">
-                        <button
-                            onClick={() => setIsModalOpen(false)}
-                        >
-                            <img
-                                src="backbut.png"
-                                alt="아니오"
-                                className="w-auto h-auto"
-                            />
-                        </button>
-                    </div>
-                    {/* 버튼2 */}
-                    <div className="flex justify-center">
-                        <button
-                            onClick={() => {
-                                setIsModalOpen(false)
-                                router.push("#"); // 다음으로로
-                            }}
-                        >
-                            <img
-                                src="passbut.png"
-                                alt="네"
-                                className="w-auto h-auto"
-                            />
-                        </button>
-                    </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
 };
 
 const ImageSlider = ({ images = [] }) => {
@@ -158,11 +75,7 @@ const images =[
 {/*main*/}
 const Step4 = () => {
   // 도움말 모달 관리
-<<<<<<< HEAD
   const router = useRouter()
-=======
-  const [isModalOpen, setIsModalOpen] = useState(false);
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
 
   return (
     <div className="relative w-full h-auto bg-white overflow-hidden">
@@ -177,16 +90,12 @@ const Step4 = () => {
             <a href="/" className="hover:text-gray-300 font-bold text-[#2300A1] text-xl">
               + 프로젝트
             </a>
-<<<<<<< HEAD
             <button 
               onClick={onNext} // 버튼 클릭 시 onNext 함수 실행
               className="hover:text-gray-300 font-bold text-[#2300A1] text-xl"
             >
               다음
             </button>
-=======
-            <FinModal onOpen={() => setIsModalOpen(true)} />
->>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
           </nav>
         </div>
       </header>

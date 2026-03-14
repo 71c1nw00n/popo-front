@@ -22,6 +22,6 @@ body {
 
 @layer base {
   input {
-    @apply focus:border-primary focus:outline-none transition duration-300 ease-in-out rounded p-2 focus:ring-[4px] focus:ring-tertiary;
+    @apply focus:outline-none transition duration-300 ease-in-out rounded p-2;
   }
 }

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Script from 'next/script'
-import Header from '@/components/Header'
 import { StepHero, StepPage, StepSectionCard } from '@/components/StepUi'
 
 type Profile = {
@@ -311,16 +310,24 @@ export default function CompletePage() {
         strategy="afterInteractive"
       />
 
-      <Header
-        additionalActions={[
-          { label: '이전', href: '/step6' },
-          { label: 'AI 피드백', onClick: () => setIsFeedbackOpen(true), primary: true },
-        ]}
-        rightAction={{
-          label: isExporting ? 'PDF 생성 중...' : 'PDF 다운로드',
-          onClick: exportToPdf,
-        }}
-      />
+      <header className="fixed top-0 z-50 flex w-full items-center justify-between border-b border-gray-200 bg-white/90 px-6 py-3 backdrop-blur-sm print:hidden">
+        <div className="text-xl font-bold italic text-[#2300A1]">POPO.</div>
+        <div className="flex items-center gap-3">
+          <a href="/step6" className="rounded-full border border-black/10 px-4 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50">이전</a>
+          <button
+            onClick={() => setIsFeedbackOpen(true)}
+            className="rounded-full bg-[#2563EB] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1D4ED8]"
+          >
+            AI 피드백
+          </button>
+          <button
+            onClick={exportToPdf}
+            className="rounded-full border border-black/10 px-4 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50"
+          >
+            {isExporting ? 'PDF 생성 중...' : 'PDF 다운로드'}
+          </button>
+        </div>
+      </header>
 
       <main className="mx-auto w-full max-w-6xl px-6 pb-12 pt-24 print:hidden">
         <StepHero
